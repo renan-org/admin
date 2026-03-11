@@ -1,0 +1,46 @@
+# Suborg-level settings for the "platform" team's repositories.
+# These settings apply to repos whose names match the patterns below,
+# overriding the org-level defaults from .github/settings.yml.
+#
+# See https://github.com/github/safe-settings for full documentation.
+
+# Repositories belonging to this suborg (glob patterns supported)
+suborgrepos:
+  - platform-*
+  - infra-*
+
+# Org labels are inherited; add platform-specific labels here
+labels:
+  include:
+    - name: platform
+      color: "0052cc"
+      description: Platform team owned issue or PR
+
+    - name: infrastructure
+      color: "e4e669"
+      description: Relates to infrastructure changes
+
+# Override branch protection for platform repos – require more reviewers
+branches:
+  - name: default
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 2
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        require_last_push_approval: true
+        bypass_pull_request_allowances:
+          apps: []
+          users: []
+          teams: []
+        dismissal_restrictions:
+          users: []
+          teams: []
+      required_status_checks:
+        strict: true
+        contexts: []
+      enforce_admins: true
+      restrictions:
+        apps: []
+        users: []
+        teams: []

@@ -1,0 +1,42 @@
+# Repository-level settings for the "demo-app" repository.
+# These settings override the org-level defaults from .github/settings.yml
+# (and any applicable suborg settings).
+#
+# See https://github.com/github/safe-settings for full documentation.
+
+repository:
+  description: Demo application repository managed by safe-settings
+  homepage: https://renan-org.github.io/demo-app
+  has_wiki: true
+  topics:
+    - demo
+    - safe-settings
+
+# Add repo-specific labels on top of the org defaults
+labels:
+  include:
+    - name: demo
+      color: "f9d0c4"
+      description: Demo-specific issue or PR
+
+# Relax branch protection slightly for this demo repo – no admin enforcement
+branches:
+  - name: default
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: false
+        require_code_owner_reviews: false
+        require_last_push_approval: false
+        bypass_pull_request_allowances:
+          apps: []
+          users: []
+          teams: []
+        dismissal_restrictions:
+          users: []
+          teams: []
+      required_status_checks:
+        strict: false
+        contexts: []
+      enforce_admins: false
+      restrictions: null
